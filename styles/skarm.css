@@ -1,0 +1,194 @@
+/* BXYZ:..:eliot@bosmanxyz.xyz:..:.www.bosmanxyz.xyz */
+
+@layer layout {
+  @media (min-width: 64rem) {
+    .ram {
+      inline-size: 100%;
+      max-inline-size: none;
+    }
+
+    .ram:not([data-black="hem"]) .trad {
+      display: grid;
+      grid-template-columns: 1fr repeat(3, var(--linje-halv)) 1fr;
+      grid-template-rows: var(--rad-hojd) minmax(0, 1fr);
+      padding-block-start: var(--trad-start);
+    }
+  }
+}
+
+@layer components {
+  .logotyp {
+    display: none;
+  }
+
+  @media (min-width: 64rem) {
+    .logotyp {
+      display: block;
+      position: absolute;
+      z-index: var(--lager-fot);
+      inline-size: var(--logotyp-b);
+      block-size: var(--logotyp-h);
+      inset-block-start: var(--logotyp-hem-block);
+      inset-inline-end: var(--logotyp-hem-inline-end);
+      background-color: var(--yta-mork);
+      mask: url("../assets/grafik/logotyp.svg") center / contain no-repeat;
+      -webkit-mask: url("../assets/grafik/logotyp.svg") center / contain no-repeat;
+      pointer-events: none;
+      view-transition-name: logotyp;
+    }
+
+    .ram:not([data-black="hem"]) .logotyp {
+      inset-block-start: auto;
+      inset-inline-end: auto;
+      inset-block-end: var(--logotyp-vald-block-end);
+      inset-inline-start: var(--logotyp-vald-inline-start);
+    }
+
+    .ram[data-yta="mork"] .logotyp {
+      background-color: var(--text-pa-mork);
+    }
+
+    .black__lager[data-lager="hem"] {
+      inset-inline-start: var(--black-hem-skrivbord-x);
+      inset-block-start: var(--black-hem-skrivbord-y);
+      inline-size: var(--black-hem-skrivbord-b);
+      block-size: var(--black-hem-skrivbord-h);
+      mask-image: url("../assets/grafik/black-hem-skrivbord.png");
+      -webkit-mask-image: url("../assets/grafik/black-hem-skrivbord.png");
+    }
+
+    .fot {
+      display: none;
+    }
+
+    .spelare {
+      position: absolute;
+      inset-inline-end: 0;
+      inset-block-end: 0;
+      flex: none;
+      inline-size: var(--spelare-skrivbord-bredd);
+    }
+
+    .ram[data-yta="mork"] .spelare {
+      background: var(--yta-panel);
+      color: var(--yta-mork);
+    }
+
+    .trad > .nod[data-nod="restaurant"] > h2 .nod__titel {
+      view-transition-name: titel-restaurant;
+    }
+
+    .trad > .nod[data-nod="program"] > h2 .nod__titel {
+      view-transition-name: titel-program;
+    }
+
+    .trad > .nod[data-nod="about"] > h2 .nod__titel {
+      view-transition-name: titel-about;
+    }
+
+    .trad > .nod[data-nod="restaurant"] > h2 .nod__linje {
+      view-transition-name: linje-restaurant;
+    }
+
+    .trad > .nod[data-nod="program"] > h2 .nod__linje {
+      view-transition-name: linje-program;
+    }
+
+    .trad > .nod[data-nod="about"] > h2 .nod__linje {
+      view-transition-name: linje-about;
+    }
+
+    .trad > .nod > h2 .nod__titel {
+      inline-size: max-content;
+      max-inline-size: 100%;
+      padding-inline: 0;
+      margin-inline-start: var(--gut-ytter);
+      white-space: nowrap;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod > h2 .nod__titel {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod {
+      display: contents;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .visuellt-dold {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod[data-nod="restaurant"] > h2 .nod__reglage {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod[data-nod="program"] > h2 .nod__reglage {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod[data-nod="about"] > h2 .nod__reglage {
+      grid-column: 4;
+      grid-row: 1;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod > .nod__panel {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod[data-tillstand="hopfalld"] > .nod__panel,
+    .ram:not([data-black="hem"]) .trad > .nod[data-tillstand="kollapsar"] > .nod__panel {
+      display: none;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod[data-tillstand="expanderad"] > .nod__panel,
+    .ram:not([data-black="hem"]) .trad > .nod[data-tillstand="expanderar"] > .nod__panel {
+      display: grid;
+      grid-template-rows: 1fr;
+      opacity: 1;
+      overflow: auto;
+      min-block-size: 0;
+      transition: none;
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod:last-child .nod__reglage {
+      flex-basis: var(--rad-hojd);
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod:last-child > h2 .nod__linje {
+      background: var(--yta-panel);
+      block-size: var(--linje-tjocklek);
+      flex-basis: var(--linje-tjocklek);
+    }
+
+    .ram[data-yta="panel"]:not([data-black="hem"]) .trad > .nod > h2 .nod__linje,
+    .ram[data-yta="panel"]:not([data-black="hem"]) .trad > .nod:last-child > h2 .nod__linje {
+      background: var(--yta-mork);
+    }
+
+    .nod[data-nod="restaurant"][data-vy="kok"] [data-nod="menu"] {
+      display: none;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"] > .nod__panel > .nod__inre {
+      inline-size: var(--kolumn-bredd);
+      max-inline-size: 100%;
+      margin-inline: auto;
+    }
+
+    .ram:not([data-black="hem"]) .kok .styrenhet {
+      margin-inline: 0;
+      margin-block-start: var(--linje-tjocklek);
+    }
+
+    .ram:not([data-black="hem"]) .kok .brod {
+      padding-inline: 0;
+      padding-block-start: var(--caption-hojd);
+      max-inline-size: var(--copy-bredd);
+    }
+  }
+}

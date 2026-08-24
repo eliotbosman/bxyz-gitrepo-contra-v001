@@ -1,0 +1,106 @@
+/* BXYZ:..:eliot@bosmanxyz.xyz:..:.www.bosmanxyz.xyz */
+
+@layer reset, base, tokens, layout, components, utilities, overrides;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    min-block-size: 100%;
+  }
+
+  button,
+  a {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-align: inherit;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  figure,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style: none;
+  }
+}
+
+@layer base {
+  html {
+    background: var(--yta-accent);
+  }
+
+  body {
+    font-family: var(--typsnitt-rubrik);
+    font-weight: var(--vikt-rubrik);
+    font-size: var(--typ-nav);
+    line-height: var(--typ-nav-hojd);
+    color: var(--text-pa-accent);
+  }
+
+  :focus-visible {
+    outline: var(--fokus-linje) solid var(--fokus-farg);
+    outline-offset: var(--fokus-linje);
+  }
+
+  .ram[data-yta="panel"] {
+    --fokus-farg: var(--yta-accent);
+  }
+
+  .ram[data-yta="accent"] {
+    --fokus-farg: var(--yta-panel);
+  }
+}
+
+@layer utilities {
+  .visuellt-dold {
+    position: absolute;
+    inline-size: var(--dold-spalt);
+    block-size: var(--dold-spalt);
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .hoppa {
+    position: absolute;
+    inset-inline-start: var(--gut-ytter);
+    inset-block-start: var(--gut-ytter);
+    z-index: 10;
+    background: var(--yta-panel);
+    color: var(--text-pa-panel);
+    padding-inline: var(--gut-ytter);
+    transform: translateY(-200%);
+  }
+
+  .hoppa:focus {
+    transform: none;
+  }
+}

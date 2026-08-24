@@ -1,0 +1,571 @@
+<!-- BXYZ:..:eliot@bosmanxyz.xyz:..:.www.bosmanxyz.xyz -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contra</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/bas.css">
+  <link rel="stylesheet" href="styles/komponenter.css">
+  <link rel="stylesheet" href="styles/skarm.css">
+  <link rel="stylesheet" href="styles/rorelse.css">
+</head>
+<body>
+  <a class="hoppa" href="#innehall">Skip to content</a>
+  <div class="ram" data-yta="accent" data-black="hem">
+    <div class="black" aria-hidden="true">
+      <span class="black__lager" data-lager="hem"></span>
+      <span class="black__lager" data-lager="restaurant"></span>
+      <span class="black__lager" data-lager="meny"></span>
+      <span class="black__lager" data-lager="program"></span>
+      <span class="black__lager" data-lager="om"></span>
+    </div>
+    <div class="logotyp" aria-hidden="true"></div>
+    <main id="innehall" class="trad">
+      <h1 class="visuellt-dold">Contra</h1>
+
+      <article
+        class="nod"
+        data-nod="restaurant"
+        data-tillstand="hopfalld"
+        data-niva="0"
+        data-yta-nod="panel"
+        data-vy="kok"
+      >
+        <h2>
+          <button
+            class="nod__reglage"
+            type="button"
+            data-atgard="ackordion/vaxla"
+            aria-expanded="false"
+            aria-controls="panel-restaurant"
+            id="knapp-restaurant"
+          >
+            <span class="nod__titel">Restaurant</span>
+            <span class="nod__linje" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="nod__panel" id="panel-restaurant" role="region" aria-labelledby="knapp-restaurant">
+          <div class="nod__inre" data-pinna="sista">
+            <div class="kok">
+              <div class="galleri" data-format="lokal" data-index="0">
+                <div class="galleri__bana">
+                  <figure class="galleri__bild" data-aktiv="true" data-bildtext="Caption">
+                    <img
+                      class="media__bild"
+                      src="assets/grafik/lokal.png"
+                      width="393"
+                      height="393"
+                      alt="Dining room and bar at Contra"
+                    >
+                  </figure>
+                  <figure class="galleri__bild" data-aktiv="false" data-bildtext="Service" aria-hidden="true">
+                    <img
+                      class="media__bild"
+                      src="assets/grafik/program-idag.png"
+                      width="393"
+                      height="393"
+                      alt="Three people in the back seat of a car at night"
+                    >
+                  </figure>
+                </div>
+                <div class="styrenhet">
+                  <button
+                    class="styrenhet__steg"
+                    type="button"
+                    data-atgard="galleri/fore"
+                    aria-label="Previous"
+                  >—</button>
+                  <p class="styrenhet__bildtext" aria-live="polite">Caption</p>
+                  <button
+                    class="styrenhet__steg"
+                    type="button"
+                    data-atgard="galleri/nasta"
+                    aria-label="Next"
+                  >—</button>
+                </div>
+              </div>
+              <div class="brod">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+              </div>
+            </div>
+
+            <article class="nod" data-nod="menu" data-blad data-tillstand="hopfalld" data-niva="1">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-menu"
+                  id="knapp-menu"
+                >
+                  <span class="nod__titel">Menu</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-menu" role="region" aria-labelledby="knapp-menu">
+                <div class="nod__inre">
+                  <div class="nod__flode">
+                    <div class="meny-lista">
+                      <section class="meny-grupp">
+                        <h4 class="meny-grupp__rubrik">Starters</h4>
+                        <ul>
+                          <li class="meny-rad"><span>Moule Frite</span><span class="meny-rad__pris">25 €</span></li>
+                          <li class="meny-rad"><span>Moule Frite</span><span class="meny-rad__pris">25 €</span></li>
+                        </ul>
+                      </section>
+                      <section class="meny-grupp">
+                        <h4 class="meny-grupp__rubrik">Starters</h4>
+                        <ul>
+                          <li class="meny-rad"><span>Moule Frite</span><span class="meny-rad__pris">25 €</span></li>
+                          <li class="meny-rad"><span>Moule Frite</span><span class="meny-rad__pris">25 €</span></li>
+                        </ul>
+                      </section>
+                      <section class="meny-grupp">
+                        <h4 class="meny-grupp__rubrik">Starters</h4>
+                        <ul>
+                          <li class="meny-rad"><span>Moule Frite</span><span class="meny-rad__pris">25 €</span></li>
+                          <li class="meny-rad"><span>Moule Frite</span><span class="meny-rad__pris">25 €</span></li>
+                        </ul>
+                      </section>
+                      <section class="meny-grupp">
+                        <h4 class="meny-grupp__rubrik">Starters</h4>
+                        <ul>
+                          <li class="meny-rad"><span>Moule Frite</span><span class="meny-rad__pris">25 €</span></li>
+                          <li class="meny-rad"><span>Moule Frite</span><span class="meny-rad__pris">25 €</span></li>
+                        </ul>
+                      </section>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="bord"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="nod"
+        data-nod="program"
+        data-tillstand="hopfalld"
+        data-niva="0"
+        data-yta-nod="accent"
+      >
+        <h2>
+          <button
+            class="nod__reglage"
+            type="button"
+            data-atgard="ackordion/vaxla"
+            aria-expanded="false"
+            aria-controls="panel-program"
+            id="knapp-program"
+          >
+            <span class="nod__titel">Program</span>
+            <span class="nod__linje" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="nod__panel" id="panel-program" role="region" aria-labelledby="knapp-program">
+          <div class="nod__inre" data-pinna="nasta">
+            <article class="nod" data-nod="idag" data-blad data-tillstand="hopfalld" data-niva="1" data-justera="hoger">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-idag"
+                  id="knapp-idag"
+                >
+                  <span class="nod__titel">
+                    <span class="etikett etikett--lang">Today 21 August</span>
+                    <span class="etikett etikett--kort" aria-hidden="true">Today</span>
+                  </span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-idag" role="region" aria-labelledby="knapp-idag">
+                <div class="nod__inre">
+                  <div class="nod__flode">
+                    <div class="galleri" data-format="program" data-index="0">
+                      <div class="galleri__bana">
+                        <figure class="galleri__bild" data-aktiv="true" data-bildtext="Caption">
+                          <img
+                            class="media__bild"
+                            src="assets/grafik/program-idag.png"
+                            width="393"
+                            height="261"
+                            alt="Three people in the back seat of a car at night"
+                          >
+                        </figure>
+                        <figure class="galleri__bild" data-aktiv="false" data-bildtext="Dining room" aria-hidden="true">
+                          <img
+                            class="media__bild"
+                            src="assets/grafik/lokal.png"
+                            width="393"
+                            height="261"
+                            alt="Dining room and bar at Contra"
+                          >
+                        </figure>
+                      </div>
+                      <div class="styrenhet">
+                        <button
+                          class="styrenhet__steg"
+                          type="button"
+                          data-atgard="galleri/fore"
+                          aria-label="Previous"
+                        >—</button>
+                        <p class="styrenhet__bildtext" aria-live="polite">Caption</p>
+                        <button
+                          class="styrenhet__steg"
+                          type="button"
+                          data-atgard="galleri/nasta"
+                          aria-label="Next"
+                        >—</button>
+                      </div>
+                    </div>
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                    <nav class="lankrad" aria-label="Listen">
+                      <a href="https://soundcloud.com">Soundcloud</a>
+                      <a href="https://bandcamp.com">Bandcamp</a>
+                      <a href="https://instagram.com">Instagram</a>
+                    </nav>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="imorgon" data-blad data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-imorgon"
+                  id="knapp-imorgon"
+                >
+                  <span class="nod__titel">
+                    <span class="etikett etikett--lang">Tomorrow 23 August</span>
+                    <span class="etikett etikett--kort" aria-hidden="true">Tomorrow</span>
+                  </span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-imorgon" role="region" aria-labelledby="knapp-imorgon">
+                <div class="nod__inre">
+                  <div class="nod__flode">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="torsdag" data-blad data-tillstand="hopfalld" data-niva="1" data-justera="vanster">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-torsdag"
+                  id="knapp-torsdag"
+                >
+                  <span class="nod__titel">Thursday 24 August</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-torsdag" role="region" aria-labelledby="knapp-torsdag">
+                <div class="nod__inre">
+                  <div class="nod__flode">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="torsdag-kvall" data-blad data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-torsdag-kvall"
+                  id="knapp-torsdag-kvall"
+                >
+                  <span class="nod__titel">Thursday 24 August</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-torsdag-kvall" role="region" aria-labelledby="knapp-torsdag-kvall">
+                <div class="nod__inre">
+                  <div class="nod__flode">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="nod"
+              data-nod="bokning"
+              data-blad
+              data-tillstand="hopfalld"
+              data-niva="1"
+              data-justera="hoger"
+              data-ton="mork"
+            >
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-bokning"
+                  id="knapp-bokning"
+                >
+                  <span class="nod__titel">Booking at Contra</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-bokning" role="region" aria-labelledby="knapp-bokning">
+                <div class="nod__inre">
+                  <div class="brod">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="nod"
+        data-nod="about"
+        data-tillstand="hopfalld"
+        data-niva="0"
+        data-yta-nod="panel"
+      >
+        <h2>
+          <button
+            class="nod__reglage"
+            type="button"
+            data-atgard="ackordion/vaxla"
+            aria-expanded="false"
+            aria-controls="panel-about"
+            id="knapp-about"
+          >
+            <span class="nod__titel">About</span>
+            <span class="nod__linje" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="nod__panel" id="panel-about" role="region" aria-labelledby="knapp-about">
+          <div class="nod__inre" data-pinna="sista">
+            <div class="om-intro">
+              <div class="brod">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim felis, laoreet nec euismod eu, ullamcorper at elit. Sed nibh arcu, eleifend ut sollicitudin et, euismod vitae arcu. Praesent in scelerisque massa. Sed ut magna id metus vestibulum eleifend id at risus. Donec eu felis ullamcorper felis bibendum ullamcorper a sit amet eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam consectetur feugiat massa, vitae cursus est congue a. Praesent auctor nisl lorem, vel condimentum velit ornare ac. Curabitur eget tellus hendrerit, mollis odio euismod, malesuada turpis. Donec rutrum pellentesque libero, bibendum cursus massa accumsan sit amet. Nulla ut ex id magna sodales lacinia. Donec gravida sollicitudin dignissim. Duis tincidunt magna et ligula semper, at suscipit tortor viverra.</p>
+              </div>
+            </div>
+
+            <article
+              class="nod"
+              data-nod="staff"
+              data-blad
+              data-tillstand="hopfalld"
+              data-niva="1"
+              data-yta-nod="mork"
+            >
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-staff"
+                  id="knapp-staff"
+                >
+                  <span class="nod__titel">Staff</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-staff" role="region" aria-labelledby="knapp-staff">
+                <div class="nod__inre">
+                  <div class="galleri" data-format="lokal" data-index="0">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild" data-aktiv="true" data-bildtext="Caption">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/lokal.png"
+                          width="393"
+                          height="393"
+                          alt="Dining room and bar at Contra"
+                        >
+                      </figure>
+                      <figure class="galleri__bild" data-aktiv="false" data-bildtext="Service" aria-hidden="true">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/program-idag.png"
+                          width="393"
+                          height="393"
+                          alt="Three people in the back seat of a car at night"
+                        >
+                      </figure>
+                    </div>
+                    <div class="styrenhet">
+                      <button
+                        class="styrenhet__steg"
+                        type="button"
+                        data-atgard="galleri/fore"
+                        aria-label="Previous"
+                      >—</button>
+                      <p class="styrenhet__bildtext" aria-live="polite">Caption</p>
+                      <button
+                        class="styrenhet__steg"
+                        type="button"
+                        data-atgard="galleri/nasta"
+                        aria-label="Next"
+                      >—</button>
+                    </div>
+                  </div>
+                  <div class="brod">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="vacancies" data-blad data-tillstand="hopfalld" data-niva="1">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-vacancies"
+                  id="knapp-vacancies"
+                >
+                  <span class="nod__titel">Vacancies</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-vacancies" role="region" aria-labelledby="knapp-vacancies">
+                <div class="nod__inre">
+                  <div class="brod" data-insats="nasta">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et est dapibus placerat sed at nunc. Proin orci lorem, laoreet at ipsum vel, scelerisque facilisis orci. Fusce ut lorem commodo, lacinia ante rhoncus, bibendum nisl. Sed ligula leo, gravida non velit vel, porta lacinia lacus. Morbi suscipit feugiat lorem sit amet blandit.</p>
+                    <p>Nam volutpat laoreet orci, id volutpat turpis. Integer purus odio, cursus ac neque luctus, tincidunt iaculis turpis. Pellentesque feugiat lacinia euismod. Ut tincidunt, diam non pharetra fringilla, orci velit ultricies augue, ut molestie ligula turpis eget nisi. Suspendisse ac mattis nulla.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </article>
+    </main>
+    <div class="spelare" data-spelar="nej" data-spar="0" hidden>
+      <button
+        class="spelare__vaxla"
+        type="button"
+        data-atgard="spelare/vaxla"
+        aria-pressed="false"
+      >Play</button>
+      <span class="spelare__tid">00:00</span>
+      <span class="spelare__titel">Casette</span>
+      <span class="spelare__puls" aria-hidden="true">.:.:.:.:.:.</span>
+      <button
+        class="spelare__nasta"
+        type="button"
+        data-atgard="spelare/nasta"
+      >Next</button>
+      <audio class="spelare__ljud" preload="metadata"></audio>
+    </div>
+    <footer class="fot">www.website-byxz.com</footer>
+    <dialog class="tebi" id="tebi" aria-labelledby="tebi-rubrik">
+      <form method="dialog" class="tebi__form">
+        <p class="tebi__dag" id="tebi-rubrik">Contra</p>
+        <div class="tebi__vy" data-vy="val">
+          <button class="tebi__rad" type="button" data-atgard="tebi/tjanst" data-tjanst="bord">Reservation 18:00–20:00</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tjanst" data-tjanst="middag">Dinner ticket 19:00–20:30</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tjanst" data-tjanst="konsert">Music ticket</button>
+        </div>
+        <div class="tebi__vy" data-vy="bord" hidden>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="18:00">18:00</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="18:30">18:30</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="19:00">19:00</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="19:30">19:30</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="20:00">20:00</button>
+        </div>
+        <div class="tebi__vy" data-vy="middag" hidden>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="19:00">19:00</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="19:30">19:30</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="20:00">20:00</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="20:30">20:30</button>
+        </div>
+        <div class="tebi__vy" data-vy="konsert" hidden>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="regular">Regular ticket</button>
+          <button class="tebi__rad" type="button" data-atgard="tebi/tid" data-tid="student">Student ticket</button>
+        </div>
+        <div class="tebi__vy" data-vy="handoff" hidden>
+          <p class="tebi__status"></p>
+          <a class="tebi__rad tebi__lank" hidden target="_blank" rel="noopener">Continue in Tebi</a>
+        </div>
+        <div class="tebi__nav">
+          <button class="tebi__rad" type="button" data-atgard="tebi/tillbaka" hidden>Back</button>
+          <button class="tebi__rad" value="stang">Close</button>
+        </div>
+      </form>
+    </dialog>
+  </div>
+  <script type="module" src="idx/accordion.js"></script>
+</body>
+</html>

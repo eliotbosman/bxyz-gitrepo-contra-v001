@@ -1,0 +1,122 @@
+/* BXYZ:..:eliot@bosmanxyz.xyz:..:.www.bosmanxyz.xyz */
+
+@font-face {
+  font-family: "Berthold Akzidenz Grotesk";
+  src: url("../typsnitt/akzidenz-grotesk-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("../typsnitt/helvetica-light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --yta-accent: #e30614;
+  --yta-panel: #cfcbdc;
+  --yta-mork: #52190e;
+  --yta-fot: rgb(217 217 217 / 0.2);
+  --text-pa-accent: #cfcbdc;
+  --text-pa-panel: #52190e;
+  --text-pa-mork: #cfcbdc;
+  --text-vald: var(--yta-mork);
+  --text-fot: #000000;
+  --typsnitt-rubrik: "Berthold Akzidenz Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --typsnitt-fot: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+  --vikt-rubrik: 500;
+  --vikt-fot: 300;
+  --typ-nav: 24px;
+  --typ-nav-hojd: 42px;
+  --typ-brod: 14.833px;
+  --typ-brod-hojd: 21.503px;
+  --typ-fot: 12px;
+  --ram-bredd: 393px;
+  --ram-hojd: 852px;
+  --trad-start: 3px;
+  --rad-text: 42px;
+  --linje-tjocklek: 12px;
+  --linje-halv: 196.5px;
+  --rad-hojd: calc(var(--rad-text) + var(--linje-tjocklek));
+  --rad-steg: var(--rad-hojd);
+  --gut-ytter: 17px;
+  --gut-nasta: 37px;
+  --copy-bredd: 363px;
+  --copy-bredd-nasta: 340px;
+  --fot-hojd: 59px;
+  --media-program-hojd: 261px;
+  --media-lokal-sida: 393px;
+  --media-tathet-program: 0.85;
+  --media-tathet-lokal: 0.75;
+  --caption-hojd: 22px;
+  --spelare-hojd: var(--caption-hojd);
+  --spelare-insats: 7px;
+  --cta-hojd: calc(var(--linje-tjocklek) * 2 + var(--rad-text));
+  --text-cta-pa-accent: var(--yta-accent);
+  --text-cta-pa-panel: var(--text-pa-mork);
+  --text-om: var(--yta-accent);
+  --meny-namn: 157px;
+  --meny-pris-start: 179px;
+  --meny-grupp-gap: 38px;
+  --black-hem-x: -222px;
+  --black-hem-y: -9px;
+  --black-hem-b: 837px;
+  --black-hem-h: 802px;
+  --black-restaurant-x: 17px;
+  --black-restaurant-y: 70px;
+  --black-restaurant-b: 347px;
+  --black-restaurant-h: 708px;
+  --black-meny-x: 190px;
+  --black-meny-y: -18px;
+  --black-meny-b: 337px;
+  --black-meny-h: 874px;
+  --black-program-x: 0px;
+  --black-program-y: 175px;
+  --black-program-b: 390px;
+  --black-program-h: 445px;
+  --black-om-x: 101px;
+  --black-om-y: -369px;
+  --black-om-b: 502.69px;
+  --black-om-h: 1303.9px;
+  --black-hem-skrivbord-x: -218px;
+  --black-hem-skrivbord-y: -471px;
+  --black-hem-skrivbord-b: 1861px;
+  --black-hem-skrivbord-h: 1784px;
+  --logotyp-b: 219px;
+  --logotyp-h: 66px;
+  --logotyp-hem-block: 22px;
+  --logotyp-hem-inline-end: 32px;
+  --logotyp-vald-inline-start: 20px;
+  --logotyp-vald-block-end: 24px;
+  --kolumn-bredd: 584px;
+  --spelare-skrivbord-bredd: 386px;
+  --bryt-skarm: 64rem;
+  --lager-bak: 0;
+  --lager-black: 1;
+  --lager-innehall: 2;
+  --lager-list: 3;
+  --lager-fot: 4;
+  --fokus-linje: 2px;
+  --fokus-farg: var(--yta-mork);
+  --dold-spalt: 1px;
+  --rorelse-snabb: 180ms;
+  --rorelse-standard: 320ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --media-lokal-sida: var(--kolumn-bredd);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --rorelse-snabb: 0ms;
+    --rorelse-standard: 0ms;
+  }
+}

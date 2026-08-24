@@ -1,0 +1,4 @@
+.cursor/
+.claude/
+.DS_Store
+*.log

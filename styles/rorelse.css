@@ -1,0 +1,39 @@
+/* BXYZ:..:eliot@bosmanxyz.xyz:..:.www.bosmanxyz.xyz */
+
+@layer components {
+  .nod__panel {
+    transition:
+      grid-template-rows var(--rorelse-standard) var(--ease-standard),
+      opacity var(--rorelse-standard) var(--ease-standard);
+  }
+
+  .galleri__bana {
+    transition: transform var(--rorelse-standard) var(--ease-standard);
+  }
+}
+
+@layer overrides {
+  @media (min-width: 64rem) {
+    ::view-transition-group(titel-restaurant),
+    ::view-transition-group(titel-program),
+    ::view-transition-group(titel-about),
+    ::view-transition-group(linje-restaurant),
+    ::view-transition-group(linje-program),
+    ::view-transition-group(linje-about),
+    ::view-transition-group(logotyp) {
+      animation-duration: var(--rorelse-standard);
+      animation-timing-function: var(--ease-standard);
+    }
+
+    ::view-transition-old(titel-restaurant),
+    ::view-transition-new(titel-restaurant),
+    ::view-transition-old(titel-program),
+    ::view-transition-new(titel-program),
+    ::view-transition-old(titel-about),
+    ::view-transition-new(titel-about) {
+      animation: none;
+      mix-blend-mode: normal;
+      height: 100%;
+    }
+  }
+}

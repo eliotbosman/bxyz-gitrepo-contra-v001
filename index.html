@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="styles/komponenter.css">
   <link rel="stylesheet" href="styles/skarm.css">
   <link rel="stylesheet" href="styles/rorelse.css">
+  <link rel="stylesheet" href="dev/grid/bxyz-dev-grid.css">
 </head>
 <body>
   <a class="hoppa" href="#innehall">Skip to content</a>
@@ -21,7 +22,9 @@
       <span class="black__lager" data-lager="program"></span>
       <span class="black__lager" data-lager="om"></span>
     </div>
-    <div class="logotyp" aria-hidden="true"></div>
+    <a class="logotyp" href="./" data-atgard="hem/ga">
+      <span class="visuellt-dold">Contra</span>
+    </a>
     <main id="innehall" class="trad">
       <h1 class="visuellt-dold">Contra</h1>
 
@@ -49,24 +52,24 @@
         <div class="nod__panel" id="panel-restaurant" role="region" aria-labelledby="knapp-restaurant">
           <div class="nod__inre" data-pinna="sista">
             <div class="kok">
-              <div class="galleri" data-format="lokal" data-index="0">
+              <div class="galleri" data-axel="x" data-justera="mitten" data-format="lokal" data-index="0">
                 <div class="galleri__bana">
-                  <figure class="galleri__bild" data-aktiv="true" data-bildtext="Caption">
+                  <figure class="galleri__bild" data-aktiv="true" data-bildtext="Bar">
                     <img
                       class="media__bild"
-                      src="assets/grafik/lokal.png"
-                      width="393"
-                      height="393"
-                      alt="Dining room and bar at Contra"
+                      src="assets/grafik/kok-07.jpg"
+                      width="682"
+                      height="1024"
+                      alt="Wine bar with stools, bottle shelves and a blackboard list"
                     >
                   </figure>
-                  <figure class="galleri__bild" data-aktiv="false" data-bildtext="Service" aria-hidden="true">
+                  <figure class="galleri__bild" data-aktiv="false" data-bildtext="Night" aria-hidden="true">
                     <img
                       class="media__bild"
-                      src="assets/grafik/program-idag.png"
-                      width="393"
-                      height="393"
-                      alt="Three people in the back seat of a car at night"
+                      src="assets/grafik/kok-09.jpg"
+                      width="768"
+                      height="1024"
+                      alt="Lounge with sofas, drinks and a saxophone under red light"
                     >
                   </figure>
                 </div>
@@ -76,19 +79,180 @@
                     type="button"
                     data-atgard="galleri/fore"
                     aria-label="Previous"
-                  >—</button>
-                  <p class="styrenhet__bildtext" aria-live="polite">Caption</p>
+                  >
+                    <svg class="styrenhet__tecken" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                      <path d="M2.375 7.35618C-0.125001 5.9128 -0.125001 2.30436 2.375 0.860986V0.860986C4.875 -0.58239 8 1.22183 8 4.10858V4.10858C8 6.99533 4.875 8.79955 2.375 7.35618V7.35618Z" stroke="currentColor" stroke-dasharray="2 2"/>
+                    </svg>
+                  </button>
+                  <p class="styrenhet__bildtext" aria-live="polite">Bar</p>
                   <button
                     class="styrenhet__steg"
                     type="button"
                     data-atgard="galleri/nasta"
                     aria-label="Next"
-                  >—</button>
+                  >
+                    <svg class="styrenhet__tecken" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                      <path d="M2.375 7.35618C-0.125001 5.9128 -0.125001 2.30436 2.375 0.860986V0.860986C4.875 -0.58239 8 1.22183 8 4.10858V4.10858C8 6.99533 4.875 8.79955 2.375 7.35618V7.35618Z" stroke="currentColor" stroke-dasharray="2 2"/>
+                    </svg>
+                  </button>
                 </div>
               </div>
-              <div class="brod">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
-              </div>
+
+              <section class="las-stycke" data-justera="vanster">
+                <div class="brod">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="mitten">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-01.jpg"
+                    width="576"
+                    height="1024"
+                    alt="Pint of beer with foam on a metal drip tray"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>Contra is a room for dinner and a room for records. Service starts when the first table sits, and the kitchen holds that pace until the last plate leaves. The bar is short. The dining room is one volume. Nothing is hidden behind a second door.</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="hoger">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-02.jpg"
+                    width="736"
+                    height="940"
+                    alt="Four spoons in a shared crème brûlée"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>We cook from a small list that changes when the market does. Bread is baked in the morning. Fish is written on the board, not in a file. Wine is opened at the table. If you ask what to eat, the answer is whatever left the stove last.</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="vanster">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-05.jpg"
+                    width="735"
+                    height="824"
+                    alt="Plates of charcuterie, tartare and anchovies on the table"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>Lunch is a shorter sitting. Dinner runs later on music nights. Booking is a table, not a ticket, unless the night is listed as a concert. Walk-ins wait at the bar. The room is the same either way.</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="mitten">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-04.jpg"
+                    width="869"
+                    height="1024"
+                    alt="Silver tray of glasses and a bottle carried over water"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>Staff rotate between floor and pass. Names are on the wall when they change. The playlist is the house cassette, then whatever the room asks for after midnight. Shoes stay on. Phones stay down during service if you can manage it.</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="hoger">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-03.jpg"
+                    width="819"
+                    height="1024"
+                    alt="Bartender shaking a cocktail over a row of bottles"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>The street is quiet after ten. Delivery is through the side door. Waste leaves before noon. We keep the pavement clear and the light low. If you smoke, you step out. If you stay, you eat.</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="vanster">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-06.jpg"
+                    width="794"
+                    height="1024"
+                    alt="Bartender at the tiled pass under globe lights"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>Reservations hold for a quarter hour. After that the table goes back to the floor. Groups larger than six write to the house, not the widget. Allergies are spoken at the door. We do not reprint the menu for a single line.</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="mitten">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-08.jpg"
+                    width="768"
+                    height="1024"
+                    alt="Corner bench seating against concrete walls"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>Contra is the restaurant, the program, and the people who close the lights. Read the board. Take a seat. The rest is the plate in front of you.</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="hoger">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-12.jpg"
+                    width="768"
+                    height="1024"
+                    alt="Crowded lounge with couches, records and a DJ booth"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>Come back for the next sitting. The board will have changed. The room will not. Kitchen first, then the rest of the night.</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="vanster">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-11.jpg"
+                    width="736"
+                    height="920"
+                    alt="Long low tables and floor seating under a projected moon"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>Large tables sit on the floor when the room asks for it. Plates are shared. The kitchen sends what it has. You stay as long as the lights stay on.</p>
+                </div>
+              </section>
+
+              <section class="las-stycke" data-justera="mitten">
+                <figure class="las-stycke__media">
+                  <img
+                    class="media__bild"
+                    src="assets/grafik/kok-10.jpg"
+                    width="802"
+                    height="1024"
+                    alt="Musician at a mixer and turntables"
+                  >
+                </figure>
+                <div class="brod">
+                  <p>When the program is a set, the pass still runs. Eat first or eat through it. The house keeps both rooms on the same clock.</p>
+                </div>
+              </section>
             </div>
 
             <article class="nod" data-nod="menu" data-blad data-tillstand="hopfalld" data-niva="1">
@@ -107,7 +271,7 @@
               </h3>
               <div class="nod__panel" id="panel-menu" role="region" aria-labelledby="knapp-menu">
                 <div class="nod__inre">
-                  <div class="nod__flode">
+                  <div class="nod__flode" data-rull="y">
                     <div class="meny-lista">
                       <section class="meny-grupp">
                         <h4 class="meny-grupp__rubrik">Starters</h4>
@@ -159,7 +323,7 @@
         data-nod="program"
         data-tillstand="hopfalld"
         data-niva="0"
-        data-yta-nod="accent"
+        data-yta-nod="svart"
       >
         <h2>
           <button
@@ -176,13 +340,13 @@
         </h2>
         <div class="nod__panel" id="panel-program" role="region" aria-labelledby="knapp-program">
           <div class="nod__inre" data-pinna="nasta">
-            <article class="nod" data-nod="idag" data-blad data-tillstand="hopfalld" data-niva="1" data-justera="hoger">
+<article class="nod" data-nod="idag" data-blad data-handelse data-tillstand="expanderad" data-niva="1" data-justera="mitten">
               <h3>
                 <button
                   class="nod__reglage"
                   type="button"
                   data-atgard="ackordion/vaxla"
-                  aria-expanded="false"
+                  aria-expanded="true"
                   aria-controls="panel-idag"
                   id="knapp-idag"
                 >
@@ -195,44 +359,29 @@
               </h3>
               <div class="nod__panel" id="panel-idag" role="region" aria-labelledby="knapp-idag">
                 <div class="nod__inre">
-                  <div class="nod__flode">
-                    <div class="galleri" data-format="program" data-index="0">
-                      <div class="galleri__bana">
-                        <figure class="galleri__bild" data-aktiv="true" data-bildtext="Caption">
-                          <img
-                            class="media__bild"
-                            src="assets/grafik/program-idag.png"
-                            width="393"
-                            height="261"
-                            alt="Three people in the back seat of a car at night"
-                          >
-                        </figure>
-                        <figure class="galleri__bild" data-aktiv="false" data-bildtext="Dining room" aria-hidden="true">
-                          <img
-                            class="media__bild"
-                            src="assets/grafik/lokal.png"
-                            width="393"
-                            height="261"
-                            alt="Dining room and bar at Contra"
-                          >
-                        </figure>
-                      </div>
-                      <div class="styrenhet">
-                        <button
-                          class="styrenhet__steg"
-                          type="button"
-                          data-atgard="galleri/fore"
-                          aria-label="Previous"
-                        >—</button>
-                        <p class="styrenhet__bildtext" aria-live="polite">Caption</p>
-                        <button
-                          class="styrenhet__steg"
-                          type="button"
-                          data-atgard="galleri/nasta"
-                          aria-label="Next"
-                        >—</button>
-                      </div>
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-08.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Corner bench seating against concrete walls"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-10.jpg"
+                          width="802"
+                          height="1024"
+                          alt="Musician at a mixer and turntables"
+                        >
+                      </figure>
                     </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
                     <div class="brod">
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
                     </div>
@@ -254,26 +403,45 @@
               </div>
             </article>
 
-            <article class="nod" data-nod="imorgon" data-blad data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+            <article class="nod" data-nod="aug-22" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
               <h3>
                 <button
                   class="nod__reglage"
                   type="button"
                   data-atgard="ackordion/vaxla"
                   aria-expanded="false"
-                  aria-controls="panel-imorgon"
-                  id="knapp-imorgon"
+                  aria-controls="panel-aug-22"
+                  id="knapp-aug-22"
                 >
-                  <span class="nod__titel">
-                    <span class="etikett etikett--lang">Tomorrow 23 August</span>
-                    <span class="etikett etikett--kort" aria-hidden="true">Tomorrow</span>
-                  </span>
+                  <span class="nod__titel">Saturday 22 August</span>
                   <span class="nod__linje" aria-hidden="true"></span>
                 </button>
               </h3>
-              <div class="nod__panel" id="panel-imorgon" role="region" aria-labelledby="knapp-imorgon">
+              <div class="nod__panel" id="panel-aug-22" role="region" aria-labelledby="knapp-aug-22">
                 <div class="nod__inre">
-                  <div class="nod__flode">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-12.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Crowded lounge with couches, records and a DJ booth"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-01.jpg"
+                          width="576"
+                          height="1024"
+                          alt="Pint of beer with foam on a metal drip tray"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
                     <div class="brod">
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
                     </div>
@@ -290,23 +458,45 @@
               </div>
             </article>
 
-            <article class="nod" data-nod="torsdag" data-blad data-tillstand="hopfalld" data-niva="1" data-justera="vanster">
+            <article class="nod" data-nod="aug-23" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
               <h3>
                 <button
                   class="nod__reglage"
                   type="button"
                   data-atgard="ackordion/vaxla"
                   aria-expanded="false"
-                  aria-controls="panel-torsdag"
-                  id="knapp-torsdag"
+                  aria-controls="panel-aug-23"
+                  id="knapp-aug-23"
                 >
-                  <span class="nod__titel">Thursday 24 August</span>
+                  <span class="nod__titel">Sunday 23 August</span>
                   <span class="nod__linje" aria-hidden="true"></span>
                 </button>
               </h3>
-              <div class="nod__panel" id="panel-torsdag" role="region" aria-labelledby="knapp-torsdag">
+              <div class="nod__panel" id="panel-aug-23" role="region" aria-labelledby="knapp-aug-23">
                 <div class="nod__inre">
-                  <div class="nod__flode">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-03.jpg"
+                          width="819"
+                          height="1024"
+                          alt="Bartender shaking a cocktail over a row of bottles"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-04.jpg"
+                          width="869"
+                          height="1024"
+                          alt="Silver tray of glasses and a bottle carried over water"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
                     <div class="brod">
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
                     </div>
@@ -323,23 +513,1255 @@
               </div>
             </article>
 
-            <article class="nod" data-nod="torsdag-kvall" data-blad data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+            <article class="nod" data-nod="aug-24" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
               <h3>
                 <button
                   class="nod__reglage"
                   type="button"
                   data-atgard="ackordion/vaxla"
                   aria-expanded="false"
-                  aria-controls="panel-torsdag-kvall"
-                  id="knapp-torsdag-kvall"
+                  aria-controls="panel-aug-24"
+                  id="knapp-aug-24"
                 >
-                  <span class="nod__titel">Thursday 24 August</span>
+                  <span class="nod__titel">Monday 24 August</span>
                   <span class="nod__linje" aria-hidden="true"></span>
                 </button>
               </h3>
-              <div class="nod__panel" id="panel-torsdag-kvall" role="region" aria-labelledby="knapp-torsdag-kvall">
+              <div class="nod__panel" id="panel-aug-24" role="region" aria-labelledby="knapp-aug-24">
                 <div class="nod__inre">
-                  <div class="nod__flode">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-06.jpg"
+                          width="794"
+                          height="1024"
+                          alt="Bartender at the tiled pass under globe lights"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-09.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Lounge with sofas, drinks and a saxophone under red light"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="aug-25" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-aug-25"
+                  id="knapp-aug-25"
+                >
+                  <span class="nod__titel">Tuesday 25 August</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-aug-25" role="region" aria-labelledby="knapp-aug-25">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-11.jpg"
+                          width="736"
+                          height="920"
+                          alt="Long low tables and floor seating under a projected moon"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-02.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Guest raising a glass at the bar"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="aug-26" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-aug-26"
+                  id="knapp-aug-26"
+                >
+                  <span class="nod__titel">Wednesday 26 August</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-aug-26" role="region" aria-labelledby="knapp-aug-26">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-05.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Bottle shelves behind the pass"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-07.jpg"
+                          width="682"
+                          height="1024"
+                          alt="Wine bar with stools and bottle shelves"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="aug-27" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-aug-27"
+                  id="knapp-aug-27"
+                >
+                  <span class="nod__titel">Thursday 27 August</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-aug-27" role="region" aria-labelledby="knapp-aug-27">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-08.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Corner bench seating against concrete walls"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-10.jpg"
+                          width="802"
+                          height="1024"
+                          alt="Musician at a mixer and turntables"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="aug-28" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-aug-28"
+                  id="knapp-aug-28"
+                >
+                  <span class="nod__titel">Friday 28 August</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-aug-28" role="region" aria-labelledby="knapp-aug-28">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-12.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Crowded lounge with couches, records and a DJ booth"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-01.jpg"
+                          width="576"
+                          height="1024"
+                          alt="Pint of beer with foam on a metal drip tray"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="aug-29" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-aug-29"
+                  id="knapp-aug-29"
+                >
+                  <span class="nod__titel">Saturday 29 August</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-aug-29" role="region" aria-labelledby="knapp-aug-29">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-03.jpg"
+                          width="819"
+                          height="1024"
+                          alt="Bartender shaking a cocktail over a row of bottles"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-04.jpg"
+                          width="869"
+                          height="1024"
+                          alt="Silver tray of glasses and a bottle carried over water"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="aug-30" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-aug-30"
+                  id="knapp-aug-30"
+                >
+                  <span class="nod__titel">Sunday 30 August</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-aug-30" role="region" aria-labelledby="knapp-aug-30">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-06.jpg"
+                          width="794"
+                          height="1024"
+                          alt="Bartender at the tiled pass under globe lights"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-09.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Lounge with sofas, drinks and a saxophone under red light"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="aug-31" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-aug-31"
+                  id="knapp-aug-31"
+                >
+                  <span class="nod__titel">Monday 31 August</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-aug-31" role="region" aria-labelledby="knapp-aug-31">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-11.jpg"
+                          width="736"
+                          height="920"
+                          alt="Long low tables and floor seating under a projected moon"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-02.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Guest raising a glass at the bar"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-01" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-01"
+                  id="knapp-sept-01"
+                >
+                  <span class="nod__titel">Tuesday 1 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-01" role="region" aria-labelledby="knapp-sept-01">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-05.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Bottle shelves behind the pass"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-07.jpg"
+                          width="682"
+                          height="1024"
+                          alt="Wine bar with stools and bottle shelves"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-02" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-02"
+                  id="knapp-sept-02"
+                >
+                  <span class="nod__titel">Wednesday 2 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-02" role="region" aria-labelledby="knapp-sept-02">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-08.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Corner bench seating against concrete walls"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-10.jpg"
+                          width="802"
+                          height="1024"
+                          alt="Musician at a mixer and turntables"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-03" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-03"
+                  id="knapp-sept-03"
+                >
+                  <span class="nod__titel">Thursday 3 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-03" role="region" aria-labelledby="knapp-sept-03">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-12.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Crowded lounge with couches, records and a DJ booth"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-01.jpg"
+                          width="576"
+                          height="1024"
+                          alt="Pint of beer with foam on a metal drip tray"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-04" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-04"
+                  id="knapp-sept-04"
+                >
+                  <span class="nod__titel">Friday 4 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-04" role="region" aria-labelledby="knapp-sept-04">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-03.jpg"
+                          width="819"
+                          height="1024"
+                          alt="Bartender shaking a cocktail over a row of bottles"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-04.jpg"
+                          width="869"
+                          height="1024"
+                          alt="Silver tray of glasses and a bottle carried over water"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-05" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-05"
+                  id="knapp-sept-05"
+                >
+                  <span class="nod__titel">Saturday 5 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-05" role="region" aria-labelledby="knapp-sept-05">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-06.jpg"
+                          width="794"
+                          height="1024"
+                          alt="Bartender at the tiled pass under globe lights"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-09.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Lounge with sofas, drinks and a saxophone under red light"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-06" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-06"
+                  id="knapp-sept-06"
+                >
+                  <span class="nod__titel">Sunday 6 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-06" role="region" aria-labelledby="knapp-sept-06">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-11.jpg"
+                          width="736"
+                          height="920"
+                          alt="Long low tables and floor seating under a projected moon"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-02.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Guest raising a glass at the bar"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-07" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-07"
+                  id="knapp-sept-07"
+                >
+                  <span class="nod__titel">Monday 7 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-07" role="region" aria-labelledby="knapp-sept-07">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-05.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Bottle shelves behind the pass"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-07.jpg"
+                          width="682"
+                          height="1024"
+                          alt="Wine bar with stools and bottle shelves"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-08" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-08"
+                  id="knapp-sept-08"
+                >
+                  <span class="nod__titel">Tuesday 8 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-08" role="region" aria-labelledby="knapp-sept-08">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-08.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Corner bench seating against concrete walls"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-10.jpg"
+                          width="802"
+                          height="1024"
+                          alt="Musician at a mixer and turntables"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-09" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-09"
+                  id="knapp-sept-09"
+                >
+                  <span class="nod__titel">Wednesday 9 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-09" role="region" aria-labelledby="knapp-sept-09">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-12.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Crowded lounge with couches, records and a DJ booth"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-01.jpg"
+                          width="576"
+                          height="1024"
+                          alt="Pint of beer with foam on a metal drip tray"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-10" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-10"
+                  id="knapp-sept-10"
+                >
+                  <span class="nod__titel">Thursday 10 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-10" role="region" aria-labelledby="knapp-sept-10">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-03.jpg"
+                          width="819"
+                          height="1024"
+                          alt="Bartender shaking a cocktail over a row of bottles"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-04.jpg"
+                          width="869"
+                          height="1024"
+                          alt="Silver tray of glasses and a bottle carried over water"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-11" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-11"
+                  id="knapp-sept-11"
+                >
+                  <span class="nod__titel">Friday 11 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-11" role="region" aria-labelledby="knapp-sept-11">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-06.jpg"
+                          width="794"
+                          height="1024"
+                          alt="Bartender at the tiled pass under globe lights"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-09.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Lounge with sofas, drinks and a saxophone under red light"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-12" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-12"
+                  id="knapp-sept-12"
+                >
+                  <span class="nod__titel">Saturday 12 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-12" role="region" aria-labelledby="knapp-sept-12">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-11.jpg"
+                          width="736"
+                          height="920"
+                          alt="Long low tables and floor seating under a projected moon"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-02.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Guest raising a glass at the bar"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-13" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-13"
+                  id="knapp-sept-13"
+                >
+                  <span class="nod__titel">Sunday 13 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-13" role="region" aria-labelledby="knapp-sept-13">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-05.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Bottle shelves behind the pass"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-07.jpg"
+                          width="682"
+                          height="1024"
+                          alt="Wine bar with stools and bottle shelves"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-14" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-14"
+                  id="knapp-sept-14"
+                >
+                  <span class="nod__titel">Monday 14 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-14" role="region" aria-labelledby="knapp-sept-14">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-08.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Corner bench seating against concrete walls"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-10.jpg"
+                          width="802"
+                          height="1024"
+                          alt="Musician at a mixer and turntables"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
+                    <div class="brod">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
+                    </div>
+                  </div>
+                  <button
+                    class="cta"
+                    type="button"
+                    data-atgard="bokning/oppna"
+                    data-tjanst="dag"
+                    aria-haspopup="dialog"
+                    aria-controls="tebi"
+                  >Reserve a table</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="nod" data-nod="sept-15" data-blad data-handelse data-tillstand="hopfalld" data-niva="1" data-justera="mitten">
+              <h3>
+                <button
+                  class="nod__reglage"
+                  type="button"
+                  data-atgard="ackordion/vaxla"
+                  aria-expanded="false"
+                  aria-controls="panel-sept-15"
+                  id="knapp-sept-15"
+                >
+                  <span class="nod__titel">Tuesday 15 September</span>
+                  <span class="nod__linje" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="nod__panel" id="panel-sept-15" role="region" aria-labelledby="knapp-sept-15">
+                <div class="nod__inre">
+                  <div class="galleri" data-axel="y" data-format="program" data-rull="y">
+                    <div class="galleri__bana">
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-12.jpg"
+                          width="768"
+                          height="1024"
+                          alt="Crowded lounge with couches, records and a DJ booth"
+                        >
+                      </figure>
+                      <figure class="galleri__bild">
+                        <img
+                          class="media__bild"
+                          src="assets/grafik/kok-01.jpg"
+                          width="576"
+                          height="1024"
+                          alt="Pint of beer with foam on a metal drip tray"
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="nod__flode" data-rull="y">
                     <div class="brod">
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non placerat enim. Donec faucibus sapien sit amet eros porttitor, vitae vulputate justo interdum. Praesent vestibulum sapien vel elit gravida, in sodales nisi faucibus. Cras sapien tellus, convallis sed urna sed, convallis accumsan nisl. Praesent neque ex, elementum ac rutrum vitae, rhoncus quis nulla. Duis nisl purus, venenatis vel tincidunt at, ultricies eget purus. Proin vehicula dolor risus, id consectetur turpis sagittis non. Quisque eget ligula et</p>
                     </div>
@@ -362,7 +1784,7 @@
               data-blad
               data-tillstand="hopfalld"
               data-niva="1"
-              data-justera="hoger"
+              data-justera="mitten"
               data-ton="mork"
             >
               <h3>
@@ -412,9 +1834,56 @@
         </h2>
         <div class="nod__panel" id="panel-about" role="region" aria-labelledby="knapp-about">
           <div class="nod__inre" data-pinna="sista">
-            <div class="om-intro">
-              <div class="brod">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim felis, laoreet nec euismod eu, ullamcorper at elit. Sed nibh arcu, eleifend ut sollicitudin et, euismod vitae arcu. Praesent in scelerisque massa. Sed ut magna id metus vestibulum eleifend id at risus. Donec eu felis ullamcorper felis bibendum ullamcorper a sit amet eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam consectetur feugiat massa, vitae cursus est congue a. Praesent auctor nisl lorem, vel condimentum velit ornare ac. Curabitur eget tellus hendrerit, mollis odio euismod, malesuada turpis. Donec rutrum pellentesque libero, bibendum cursus massa accumsan sit amet. Nulla ut ex id magna sodales lacinia. Donec gravida sollicitudin dignissim. Duis tincidunt magna et ligula semper, at suscipit tortor viverra.</p>
+            <div class="om-falt" data-rull="y">
+              <div class="om-intro">
+                <div class="brod">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim felis, laoreet nec euismod eu, ullamcorper at elit. Sed nibh arcu, eleifend ut sollicitudin et, euismod vitae arcu. Praesent in scelerisque massa. Sed ut magna id metus vestibulum eleifend id at risus. Donec eu felis ullamcorper felis bibendum ullamcorper a sit amet eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam consectetur feugiat massa, vitae cursus est congue a. Praesent auctor nisl lorem, vel condimentum velit ornare ac. Curabitur eget tellus hendrerit, mollis odio euismod, malesuada turpis. Donec rutrum pellentesque libero, bibendum cursus massa accumsan sit amet. Nulla ut ex id magna sodales lacinia. Donec gravida sollicitudin dignissim. Duis tincidunt magna et ligula semper, at suscipit tortor viverra.</p>
+                </div>
+              </div>
+              <div class="galleri" data-axel="x" data-justera="mitten" data-format="lokal" data-snapp="om" data-index="0">
+                <div class="galleri__bana">
+                  <figure class="galleri__bild" data-aktiv="true" data-bildtext="Bar">
+                    <img
+                      class="media__bild"
+                      src="assets/grafik/kok-07.jpg"
+                      width="682"
+                      height="1024"
+                      alt="Wine bar with stools, bottle shelves and a blackboard list"
+                    >
+                  </figure>
+                  <figure class="galleri__bild" data-aktiv="false" data-bildtext="Night" aria-hidden="true">
+                    <img
+                      class="media__bild"
+                      src="assets/grafik/kok-09.jpg"
+                      width="768"
+                      height="1024"
+                      alt="Lounge with sofas, drinks and a saxophone under red light"
+                    >
+                  </figure>
+                </div>
+                <div class="styrenhet">
+                  <button
+                    class="styrenhet__steg"
+                    type="button"
+                    data-atgard="galleri/fore"
+                    aria-label="Previous"
+                  >
+                    <svg class="styrenhet__tecken" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                      <path d="M2.375 7.35618C-0.125001 5.9128 -0.125001 2.30436 2.375 0.860986V0.860986C4.875 -0.58239 8 1.22183 8 4.10858V4.10858C8 6.99533 4.875 8.79955 2.375 7.35618V7.35618Z" stroke="currentColor" stroke-dasharray="2 2"/>
+                    </svg>
+                  </button>
+                  <p class="styrenhet__bildtext" aria-live="polite">Bar</p>
+                  <button
+                    class="styrenhet__steg"
+                    type="button"
+                    data-atgard="galleri/nasta"
+                    aria-label="Next"
+                  >
+                    <svg class="styrenhet__tecken" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                      <path d="M2.375 7.35618C-0.125001 5.9128 -0.125001 2.30436 2.375 0.860986V0.860986C4.875 -0.58239 8 1.22183 8 4.10858V4.10858C8 6.99533 4.875 8.79955 2.375 7.35618V7.35618Z" stroke="currentColor" stroke-dasharray="2 2"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -441,7 +1910,7 @@
               </h3>
               <div class="nod__panel" id="panel-staff" role="region" aria-labelledby="knapp-staff">
                 <div class="nod__inre">
-                  <div class="galleri" data-format="lokal" data-index="0">
+                  <div class="galleri" data-axel="x" data-justera="mitten" data-format="lokal" data-index="0">
                     <div class="galleri__bana">
                       <figure class="galleri__bild" data-aktiv="true" data-bildtext="Caption">
                         <img
@@ -529,7 +1998,7 @@
       >Next</button>
       <audio class="spelare__ljud" preload="metadata"></audio>
     </div>
-    <footer class="fot">www.website-byxz.com</footer>
+    <footer class="fot" hidden>www.website-byxz.com</footer>
     <dialog class="tebi" id="tebi" aria-labelledby="tebi-rubrik">
       <form method="dialog" class="tebi__form">
         <p class="tebi__dag" id="tebi-rubrik">Contra</p>
@@ -567,5 +2036,6 @@
     </dialog>
   </div>
   <script type="module" src="idx/accordion.js"></script>
+  <script src="dev/grid/bxyz-dev-grid.js" defer></script>
 </body>
 </html>

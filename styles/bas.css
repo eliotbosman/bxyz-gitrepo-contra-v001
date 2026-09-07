@@ -55,6 +55,11 @@
 @layer base {
   html {
     background: var(--yta-accent);
+    scrollbar-width: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 
   body {
@@ -77,6 +82,10 @@
   .ram[data-yta="accent"] {
     --fokus-farg: var(--yta-panel);
   }
+
+  .ram[data-yta="svart"] {
+    --fokus-farg: var(--yta-panel);
+  }
 }
 
 @layer utilities {
@@ -93,7 +102,7 @@
     position: absolute;
     inset-inline-start: var(--gut-ytter);
     inset-block-start: var(--gut-ytter);
-    z-index: 10;
+    z-index: calc(var(--lager-dev) + 2);
     background: var(--yta-panel);
     color: var(--text-pa-panel);
     padding-inline: var(--gut-ytter);

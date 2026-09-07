@@ -17,106 +17,221 @@
 }
 
 :root {
-  --yta-accent: #e30614;
-  --yta-panel: #cfcbdc;
-  --yta-mork: #52190e;
+  --kalla-accent: #e30614;
+  --kalla-panel: #cfcbdc;
+  --kalla-mork: #52190e;
+  --kalla-svart: #000000;
+  --yta-accent: var(--kalla-accent);
+  --yta-panel: var(--kalla-panel);
+  --yta-mork: var(--kalla-mork);
+  --yta-svart: var(--kalla-svart);
   --yta-fot: rgb(217 217 217 / 0.2);
-  --text-pa-accent: #cfcbdc;
-  --text-pa-panel: #52190e;
-  --text-pa-mork: #cfcbdc;
+  --text-pa-accent: var(--kalla-panel);
+  --text-pa-panel: var(--kalla-mork);
+  --text-pa-mork: var(--kalla-panel);
+  --text-pa-svart: var(--kalla-panel);
   --text-vald: var(--yta-mork);
-  --text-fot: #000000;
+  --text-fot: var(--yta-svart);
   --typsnitt-rubrik: "Berthold Akzidenz Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --typsnitt-fot: "Helvetica", "Helvetica Neue", Arial, sans-serif;
   --vikt-rubrik: 500;
   --vikt-fot: 300;
-  --typ-nav: 24px;
-  --typ-nav-hojd: 42px;
-  --typ-brod: 14.833px;
-  --typ-brod-hojd: 21.503px;
-  --typ-fot: 12px;
-  --ram-bredd: 393px;
-  --ram-hojd: 852px;
-  --trad-start: 3px;
-  --rad-text: 42px;
-  --linje-tjocklek: 12px;
-  --linje-halv: 196.5px;
-  --rad-hojd: calc(var(--rad-text) + var(--linje-tjocklek));
+  --falt-inline: 100dvw;
+  --falt-block: 100dvh;
+  --u: clamp(2rem, 4.5dvw, 2.25rem);
+  --cols: 2;
+  --rows: 18;
+  --ratio-space: 0.25;
+  --ratio-type: 1.4;
+  --gutter: calc(var(--u) * var(--ratio-space));
+  --margin: calc(var(--gutter) * 2);
+  --baseline: calc(var(--u) / 4);
+  --col: calc(
+    (
+        var(--falt-inline)
+        - (2 * var(--margin))
+        - ((var(--cols) - 1) * var(--gutter))
+      )
+    / var(--cols)
+  );
+  --span-1: var(--col);
+  --span-2: calc(var(--col) * 2 + var(--gutter));
+  --span-3: calc(var(--col) * 3 + var(--gutter) * 2);
+  --span-4: calc(var(--col) * 4 + var(--gutter) * 3);
+  --span-5: calc(var(--col) * 5 + var(--gutter) * 4);
+  --span-6: calc(var(--col) * 6 + var(--gutter) * 5);
+  --strek: calc(var(--u) / 16);
+  --stroke: var(--strek);
+  --tau: 120ms;
+  --dur-1: var(--tau);
+  --dur-2: calc(var(--tau) * 2);
+  --dur-half: calc(var(--tau) / 2);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease: var(--ease-standard);
+  --linje-tjocklek: var(--baseline);
+  --rad-text: calc(var(--u) - var(--linje-tjocklek));
+  --rad-hojd: var(--u);
   --rad-steg: var(--rad-hojd);
-  --gut-ytter: 17px;
-  --gut-nasta: 37px;
-  --copy-bredd: 363px;
-  --copy-bredd-nasta: 340px;
-  --fot-hojd: 59px;
-  --media-program-hojd: 261px;
-  --media-lokal-sida: 393px;
+  --typ-nav-hojd: var(--rad-text);
+  --typ-nav: calc(var(--typ-nav-hojd) / var(--ratio-type));
+  --typ-brod-hojd: calc(var(--baseline) * 2);
+  --typ-brod: calc(var(--typ-brod-hojd) / var(--ratio-type));
+  --typ-fot: calc(var(--baseline) / var(--ratio-type));
+  --typ-3-hojd: calc(var(--baseline) * 6);
+  --typ-3: calc(var(--typ-3-hojd) / var(--ratio-type));
+  --trad-start: var(--margin);
+  --linje-halv: calc(
+    (var(--cols) / 2) * var(--col)
+    + ((var(--cols) / 2) - 1) * var(--gutter)
+  );
+  --gut-ytter: var(--margin);
+  --gut-nasta: calc(var(--margin) + var(--gutter));
+  --copy-bredd: var(--span-2);
+  --copy-bredd-nasta: var(--span-1);
+  --fot-hojd: var(--u);
+  --media-program-hojd: calc(var(--u) * 5);
+  --media-lokal-sida: var(--span-2);
+  --media-las-bredd: var(--span-2);
+  --las-brod-bredd: var(--span-1);
+  --media-max-block: calc(var(--falt-block) - 2 * var(--margin));
   --media-tathet-program: 0.85;
   --media-tathet-lokal: 0.75;
-  --caption-hojd: 22px;
+  --caption-hojd: calc(var(--baseline) * 2);
+  --styrenhet-insats: var(--margin);
+  --styrenhet-band: calc(var(--styrenhet-insats) * 2 + var(--caption-hojd));
+  --galleri-span: 100%;
+  --galleri-luft: var(--u);
+  --galleri-yta: calc(
+    var(--falt-block)
+    - var(--margin)
+    - var(--u)
+    - var(--galleri-luft)
+  );
+  --galleri-bild-hojd: calc(var(--galleri-yta) - var(--styrenhet-band));
   --spelare-hojd: var(--caption-hojd);
-  --spelare-insats: 7px;
+  --spelare-insats: calc(var(--gutter) / 2);
   --cta-hojd: calc(var(--linje-tjocklek) * 2 + var(--rad-text));
   --text-cta-pa-accent: var(--yta-accent);
   --text-cta-pa-panel: var(--text-pa-mork);
+  --yta-cta-hover: var(--yta-mork);
+  --text-rulla-gra: var(--yta-panel);
+  --text-rulla-mork: var(--yta-mork);
+  --text-rulla-ljus: var(--yta-panel);
+  --rulla-insats-x: var(--gutter);
+  --rulla-insats-y: calc(var(--baseline) * -2);
   --text-om: var(--yta-accent);
-  --meny-namn: 157px;
-  --meny-pris-start: 179px;
-  --meny-grupp-gap: 38px;
-  --black-hem-x: -222px;
-  --black-hem-y: -9px;
-  --black-hem-b: 837px;
-  --black-hem-h: 802px;
-  --black-restaurant-x: 17px;
-  --black-restaurant-y: 70px;
-  --black-restaurant-b: 347px;
-  --black-restaurant-h: 708px;
-  --black-meny-x: 190px;
-  --black-meny-y: -18px;
-  --black-meny-b: 337px;
-  --black-meny-h: 874px;
-  --black-program-x: 0px;
-  --black-program-y: 175px;
-  --black-program-b: 390px;
-  --black-program-h: 445px;
-  --black-om-x: 101px;
-  --black-om-y: -369px;
-  --black-om-b: 502.69px;
-  --black-om-h: 1303.9px;
-  --black-hem-skrivbord-x: -218px;
-  --black-hem-skrivbord-y: -471px;
-  --black-hem-skrivbord-b: 1861px;
-  --black-hem-skrivbord-h: 1784px;
-  --logotyp-b: 219px;
-  --logotyp-h: 66px;
-  --logotyp-hem-block: 22px;
-  --logotyp-hem-inline-end: 32px;
-  --logotyp-vald-inline-start: 20px;
-  --logotyp-vald-block-end: 24px;
-  --kolumn-bredd: 584px;
-  --spelare-skrivbord-bredd: 386px;
+  --meny-namn: calc(var(--u) * 3);
+  --meny-pris-start: calc(var(--u) * 3 + var(--gutter));
+  --meny-grupp-gap: calc(var(--gutter) * 3);
+  --black-hem-x: -13.875rem;
+  --black-hem-y: -0.5625rem;
+  --black-hem-b: 52.3125rem;
+  --black-hem-h: 50.125rem;
+  --black-restaurant-x: 1.0625rem;
+  --black-restaurant-y: 4.375rem;
+  --black-restaurant-b: 21.6875rem;
+  --black-restaurant-h: 44.25rem;
+  --black-meny-x: 11.875rem;
+  --black-meny-y: -1.125rem;
+  --black-meny-b: 21.0625rem;
+  --black-meny-h: 54.625rem;
+  --black-program-x: 0;
+  --black-program-y: 10.9375rem;
+  --black-program-b: 24.375rem;
+  --black-program-h: 27.8125rem;
+  --black-om-x: 6.3125rem;
+  --black-om-y: -23.0625rem;
+  --black-om-b: 31.418125rem;
+  --black-om-h: 81.49375rem;
+  --black-hem-skrivbord-x: -13.625rem;
+  --black-hem-skrivbord-y: -29.4375rem;
+  --black-hem-skrivbord-b: 116.3125rem;
+  --black-hem-skrivbord-h: 111.5rem;
+  --logotyp-b: 13.6875rem;
+  --logotyp-h: 4.125rem;
+  --logotyp-hem-block: var(--margin);
+  --logotyp-hem-inline-end: var(--margin);
+  --logotyp-vald-inline-start: var(--margin);
+  --logotyp-vald-block-end: var(--margin);
+  --kolumn-bredd: var(--span-2);
+  --spelare-skrivbord-bredd: var(--span-1);
   --bryt-skarm: 64rem;
   --lager-bak: 0;
   --lager-black: 1;
   --lager-innehall: 2;
   --lager-list: 3;
   --lager-fot: 4;
-  --fokus-linje: 2px;
+  --lager-dev: calc(var(--lager-fot) + 1);
+  --fokus-linje: calc(var(--u) / 27);
   --fokus-farg: var(--yta-mork);
-  --dold-spalt: 1px;
-  --rorelse-snabb: 180ms;
-  --rorelse-standard: 320ms;
-  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dold-spalt: calc(var(--u) / 54);
+  --rorelse-snabb: calc(var(--tau) * 3 / 2);
+  --rorelse-standard: calc(var(--tau) * 8 / 3);
+}
+
+@property --las-t {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 0%;
+}
+
+.ram[data-las-del="0"] { --las-t: 0%; }
+.ram[data-las-del="5"] { --las-t: 5%; }
+.ram[data-las-del="10"] { --las-t: 10%; }
+.ram[data-las-del="15"] { --las-t: 15%; }
+.ram[data-las-del="20"] { --las-t: 20%; }
+.ram[data-las-del="25"] { --las-t: 25%; }
+.ram[data-las-del="30"] { --las-t: 30%; }
+.ram[data-las-del="35"] { --las-t: 35%; }
+.ram[data-las-del="40"] { --las-t: 40%; }
+.ram[data-las-del="45"] { --las-t: 45%; }
+.ram[data-las-del="50"] { --las-t: 50%; }
+.ram[data-las-del="55"] { --las-t: 55%; }
+.ram[data-las-del="60"] { --las-t: 60%; }
+.ram[data-las-del="65"] { --las-t: 65%; }
+.ram[data-las-del="70"] { --las-t: 70%; }
+.ram[data-las-del="75"] { --las-t: 75%; }
+.ram[data-las-del="80"] { --las-t: 80%; }
+.ram[data-las-del="85"] { --las-t: 85%; }
+.ram[data-las-del="90"] { --las-t: 90%; }
+.ram[data-las-del="95"] { --las-t: 95%; }
+.ram[data-las-del="100"] { --las-t: 100%; }
+
+@media (min-width: 40rem) {
+  :root {
+    --cols: 3;
+  }
 }
 
 @media (min-width: 64rem) {
   :root {
-    --media-lokal-sida: var(--kolumn-bredd);
+    --cols: 6;
+    --copy-bredd: var(--span-3);
+    --copy-bredd-nasta: var(--span-2);
+    --kolumn-bredd: var(--span-3);
+    --las-brod-bredd: var(--span-2);
+    --media-lokal-sida: var(--span-3);
+    --media-las-bredd: var(--span-3);
+    --spelare-skrivbord-bredd: var(--span-2);
+    --media-program-hojd: calc(var(--u) * 8);
+    --galleri-span: var(--span-3);
+    --program-kropp: calc(var(--u) * 16);
+    --program-lista: calc(var(--u) * 8);
+    --handelse-rubrik: calc(var(--u) * 2);
+    --handelse-text-rubrik: calc(var(--handelse-rubrik) - var(--linje-tjocklek));
+    --program-text-insats: var(--margin);
+    --program-stam: calc(var(--handelse-rubrik) + var(--program-kropp) + var(--program-lista));
+  }
+}
+
+@media (orientation: landscape) and (max-width: 64rem) {
+  :root {
+    --u: clamp(1.5rem, 5.333dvh, 2rem);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --rorelse-snabb: 0ms;
-    --rorelse-standard: 0ms;
+    --tau: 0ms;
   }
 }

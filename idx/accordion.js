@@ -7,11 +7,19 @@ const tillstand = Object.freeze({
   kollapsar: 'kollapsar',
 });
 
+const pekare = Object.freeze({
+  rulla: 'rulla',
+  vila: 'vila',
+  cta: 'cta',
+  oppna: 'oppna',
+});
+
 const reduceradRorelse = window.matchMedia('(prefers-reduced-motion: reduce)');
 const skrivbordFraga = window.matchMedia('(min-width: 64rem)');
 
 const atgarder = {
   'ackordion/vaxla': vaxlaNod,
+  'hem/ga': gaHem,
   'galleri/fore': (event, knapp) => stegaGalleri(knapp, -1),
   'galleri/nasta': (event, knapp) => stegaGalleri(knapp, 1),
   'spelare/vaxla': vaxlaSpelning,
@@ -73,6 +81,7 @@ function markera(nod, nasta, expanderad) {
   const knapp = knappFor(nod);
   if (knapp) {
     knapp.setAttribute('aria-expanded', expanderad ? 'true' : 'false');
+    delete knapp.dataset.pekare;
   }
   const panel = panelFor(nod);
   if (panel) {
@@ -88,6 +97,10 @@ function arTopp(nod) {
   return nod.dataset.niva === '0';
 }
 
+function arIdag(nod) {
+  return nod?.dataset.nod === 'idag';
+}
+
 function korMedOvergang(fn) {
   if (
     !arSkrivbord() ||
@@ -101,6 +114,7 @@ function korMedOvergang(fn) {
 }
 
 function stangNod(nod) {
+  if (arIdag(nod)) return;
   if (!arOppen(nod) && nod.dataset.tillstand !== tillstand.kollapsar) {
     return;
   }
@@ -123,7 +137,9 @@ function stangNod(nod) {
 }
 
 function oppnaNod(nod) {
-  syskon(nod).forEach((s) => stangNod(s));
+  syskon(nod).forEach((s) => {
+    if (!arIdag(s)) stangNod(s);
+  });
   if (reduceradRorelse.matches || (arSkrivbord() && arTopp(nod))) {
     markera(nod, tillstand.expanderad, true);
     return;
@@ -136,15 +152,25 @@ function oppnaNod(nod) {
   });
 }
 
+function hallIdagOppen() {
+  const program = document.querySelector('[data-nod="program"]');
+  const idag = document.querySelector('[data-nod="idag"]');
+  if (!program || !idag || !arOppen(program)) return;
+  if (arOppen(idag) || idag.dataset.tillstand === tillstand.expanderar) return;
+  markera(idag, tillstand.expanderad, true);
+}
+
 function vaxlaNod(event, knapp) {
   const nod = knapp.closest('.nod');
   if (!nod) return;
+  if (arIdag(nod) && arOppen(nod)) return;
   const kora = () => {
     if (arOppen(nod)) {
       stangNod(nod);
     } else {
       oppnaNod(nod);
     }
+    hallIdagOppen();
     uppdateraSkal();
     uppdateraHash();
   };
@@ -153,6 +179,15 @@ function vaxlaNod(event, knapp) {
   } else {
     kora();
   }
+}
+
+function gaHem() {
+  const kora = () => {
+    nollstallTrad();
+    uppdateraSkal();
+    uppdateraHash();
+  };
+  korMedOvergang(kora);
 }
 
 function hamtaSogvag() {
@@ -202,10 +237,15 @@ function hamtaBlack(ram) {
   const vacancies = ram.querySelector('[data-nod="vacancies"]');
   const about = ram.querySelector('[data-nod="about"]');
   const restaurant = ram.querySelector('[data-nod="restaurant"]');
-  if (idag && arOppen(idag)) return 'program';
-  if (program && arOppen(program)) return 'ingen';
+  if (idag && arOppen(idag)) {
+    const annan = [...ram.querySelectorAll('[data-handelse]')].some(
+      (nod) => !arIdag(nod) && arOppen(nod)
+    );
+    if (!annan) return 'program';
+  }
+  if (program && arOppen(program)) return arSkrivbord() ? 'program-lista' : 'ingen';
   if (staff && arOppen(staff)) return 'ingen';
-  if (meny && arOppen(meny)) return 'meny';
+  if (meny && arOppen(meny) && !arSkrivbord()) return 'meny';
   if (vacancies && arOppen(vacancies)) return 'restaurant';
   if (about && arOppen(about)) return 'om';
   if (restaurant && arOppen(restaurant)) return 'ingen';
@@ -217,17 +257,24 @@ function hamtaYta(ram) {
   if (staff && arOppen(staff)) return 'mork';
   const restaurant = ram.querySelector('[data-nod="restaurant"]');
   const meny = ram.querySelector('[data-nod="menu"]');
-  if (restaurant && arOppen(restaurant) && !(meny && arOppen(meny))) return 'mork';
+  if (restaurant && arOppen(restaurant) && (!(meny && arOppen(meny)) || arSkrivbord())) return 'mork';
   const topp = [...ram.querySelectorAll('.trad > .nod')].find(arOppen);
+  if (!arSkrivbord() && topp?.dataset.nod === 'program') return 'accent';
   if (topp?.dataset.ytaNod === 'panel') return 'panel';
+  if (topp?.dataset.ytaNod === 'svart') return 'svart';
   return 'accent';
+}
+
+function hamtaDevYta() {
+  const yta = document.documentElement.dataset.devYta;
+  if (yta === 'accent' || yta === 'panel' || yta === 'mork' || yta === 'svart') return yta;
+  return '';
 }
 
 function hamtaSpelare(ram) {
   if (arSkrivbord()) return 'synlig';
   const topp = [...ram.querySelectorAll('.trad > .nod')].find(arOppen);
   if (!topp) return 'synlig';
-  if (topp.dataset.nod === 'program') return 'synlig';
   if (topp.dataset.nod === 'about') {
     const staff = ram.querySelector('[data-nod="staff"]');
     const vacancies = ram.querySelector('[data-nod="vacancies"]');
@@ -254,9 +301,11 @@ function uppdateraSkal() {
   const ram = document.querySelector('.ram');
   if (!ram) return;
   uppdateraRestaurangVy(ram);
-  ram.dataset.yta = hamtaYta(ram);
+  ram.dataset.yta = hamtaDevYta() || hamtaYta(ram);
   ram.dataset.black = hamtaBlack(ram);
   ram.dataset.spelare = hamtaSpelare(ram);
+  uppdateraLas(ram.querySelector('.kok'));
+  synkaAllaPekare();
   const spelare = ram.querySelector('.spelare');
   if (!spelare) return;
   const synlig = ram.dataset.spelare === 'synlig';
@@ -280,27 +329,155 @@ function lasHash() {
 function hamtaFranHash() {
   nollstallTrad();
   const delar = lasHash();
+  if (delar[0] === 'program' && delar.length === 1) {
+    delar.push('idag');
+  }
   if (delar.length) oppnaVag(delar);
+  hallIdagOppen();
   uppdateraSkal();
   uppdateraHash();
 }
 
-function rullaKokTillMeny(flode) {
-  if (arSkrivbord()) return;
-  const rest = document.querySelector('[data-nod="restaurant"]');
-  const meny = document.querySelector('[data-nod="menu"]');
-  if (!rest || !meny || !arOppen(rest) || arOppen(meny)) return;
-  if (flode.scrollTop <= 0) return;
-  if (flode.scrollTop + flode.clientHeight < flode.scrollHeight - 2) return;
-  oppnaNod(meny);
-  uppdateraSkal();
-  uppdateraHash();
+function lasAktiv(ram) {
+  const rest = ram.querySelector('[data-nod="restaurant"]');
+  const meny = ram.querySelector('[data-nod="menu"]');
+  return Boolean(rest && arOppen(rest) && !(meny && arOppen(meny)));
+}
+
+function nollstallLas(ram) {
+  delete ram.dataset.las;
+  delete ram.dataset.lasFas;
+  delete ram.dataset.lasDel;
+}
+
+function uppdateraLas(flode) {
+  const ram = document.querySelector('.ram');
+  if (!ram) return;
+  if (hamtaDevYta() || !lasAktiv(ram)) {
+    nollstallLas(ram);
+    return;
+  }
+  const kok = flode || ram.querySelector('.kok');
+  const spann = kok ? kok.scrollHeight - kok.clientHeight : 0;
+  const t = spann > 0 ? Math.min(1, Math.max(0, kok.scrollTop / spann)) : 0;
+  let fas = 'mork-panel';
+  let lokal = t * 3;
+  if (t >= 2 / 3) {
+    fas = 'accent-svart';
+    lokal = (t - 2 / 3) * 3;
+  } else if (t >= 1 / 3) {
+    fas = 'panel-accent';
+    lokal = (t - 1 / 3) * 3;
+  }
+  ram.dataset.las = 'ja';
+  ram.dataset.lasFas = fas;
+  ram.dataset.lasDel = String(Math.round(Math.min(1, Math.max(0, lokal)) * 20) * 5);
 }
 
 function startaKokRull() {
   const kok = document.querySelector('.kok');
   if (!kok) return;
-  kok.addEventListener('scroll', () => rullaKokTillMeny(kok), { passive: true });
+  kok.addEventListener('scroll', () => uppdateraLas(kok), { passive: true });
+}
+
+function kanRulla(el) {
+  return el.scrollHeight - el.clientHeight > 1;
+}
+
+function synkaPekare(el) {
+  if (!skrivbordFraga.matches) {
+    delete el.dataset.pekare;
+    return;
+  }
+  el.dataset.pekare = kanRulla(el) ? pekare.rulla : pekare.vila;
+}
+
+function synkaAllaPekare() {
+  document.querySelectorAll('[data-rull]').forEach(synkaPekare);
+}
+
+function startaPekare() {
+  const ytor = document.querySelectorAll('[data-rull]');
+  if (!ytor.length) return;
+  const ro = new ResizeObserver(synkaAllaPekare);
+  ytor.forEach((el) => ro.observe(el));
+  skrivbordFraga.addEventListener('change', synkaAllaPekare);
+  synkaAllaPekare();
+}
+
+function pekareMal(event) {
+  return event.target.closest('.cta[data-atgard="bokning/oppna"], [data-atgard="ackordion/vaxla"]');
+}
+
+function sattPekareHover(mal) {
+  if (!skrivbordFraga.matches || !mal) return;
+  if (mal.matches('.cta')) {
+    mal.dataset.pekare = pekare.cta;
+    return;
+  }
+  const nod = mal.closest('.nod');
+  if (nod && !arOppen(nod)) {
+    mal.dataset.pekare = pekare.oppna;
+  }
+}
+
+function rensaPekareHover(mal, related) {
+  if (!mal || mal.contains(related)) return;
+  delete mal.dataset.pekare;
+}
+
+function startaHover() {
+  const ram = document.querySelector('.ram');
+  if (!ram) return;
+  ram.addEventListener('mouseover', (event) => {
+    sattPekareHover(pekareMal(event));
+  });
+  ram.addEventListener('mouseout', (event) => {
+    rensaPekareHover(pekareMal(event), event.relatedTarget);
+  });
+}
+
+function rullaVariant(el) {
+  if (el.matches('.galleri[data-axel="y"]')) return 'gra';
+  if (el.closest('.ram[data-yta="svart"], .ram[data-yta="mork"]')) return 'ljus';
+  return 'mork';
+}
+
+function startaRullaPekare() {
+  let overlay = document.querySelector('.rulla-pekare');
+  if (!overlay) {
+    overlay = document.createElement('span');
+    overlay.className = 'rulla-pekare';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.textContent = 'Scroll';
+    overlay.dataset.synlig = 'nej';
+    document.body.appendChild(overlay);
+  }
+
+  function dolj() {
+    overlay.dataset.synlig = 'nej';
+  }
+
+  function uppdatera(event) {
+    if (!skrivbordFraga.matches) {
+      dolj();
+      return;
+    }
+    const yta = event.target.closest('[data-pekare="rulla"]');
+    if (!yta || event.target.closest('a, button, [data-atgard]')) {
+      dolj();
+      return;
+    }
+    overlay.style.setProperty('--rulla-x', String(event.clientX));
+    overlay.style.setProperty('--rulla-y', String(event.clientY));
+    overlay.dataset.variant = rullaVariant(yta);
+    overlay.dataset.synlig = 'ja';
+  }
+
+  document.addEventListener('mousemove', uppdatera, { passive: true });
+  skrivbordFraga.addEventListener('change', () => {
+    if (!skrivbordFraga.matches) dolj();
+  });
 }
 
 function galleriFor(el) {
@@ -312,6 +489,7 @@ function bilderI(galleri) {
 }
 
 function visaBild(galleri, index) {
+  if (galleri.dataset.axel === 'y') return;
   const bilder = bilderI(galleri);
   if (!bilder.length) return;
   const n = bilder.length;
@@ -338,7 +516,7 @@ function stegaGalleri(knapp, steg) {
 function hanteraGalleriTangent(event) {
   if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
   const galleri = event.target.closest('.galleri');
-  if (!galleri) return;
+  if (!galleri || galleri.dataset.axel === 'y') return;
   event.preventDefault();
   const nu = Number(galleri.dataset.index || 0);
   visaBild(galleri, nu + (event.key === 'ArrowRight' ? 1 : -1));
@@ -346,6 +524,7 @@ function hanteraGalleriTangent(event) {
 
 function startaGalleri() {
   document.querySelectorAll('.galleri').forEach((galleri) => {
+    if (galleri.dataset.axel === 'y') return;
     visaBild(galleri, Number(galleri.dataset.index || 0));
   });
 }
@@ -610,9 +789,13 @@ function starta() {
   ram.addEventListener('keydown', hanteraGalleriTangent);
   window.addEventListener('hashchange', hamtaFranHash);
   skrivbordFraga.addEventListener('change', uppdateraSkal);
+  document.documentElement.addEventListener('bxyz-dev-skal', uppdateraSkal);
   startaGalleri();
   startaSpelare();
   startaKokRull();
+  startaPekare();
+  startaRullaPekare();
+  startaHover();
   hamtaFranHash();
 }
 

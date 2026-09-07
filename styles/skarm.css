@@ -1,27 +1,43 @@
 /* BXYZ:..:eliot@bosmanxyz.xyz:..:.www.bosmanxyz.xyz */
 
-@layer layout {
-  @media (min-width: 64rem) {
-    .ram {
-      inline-size: 100%;
-      max-inline-size: none;
-    }
-
-    .ram:not([data-black="hem"]) .trad {
-      display: grid;
-      grid-template-columns: 1fr repeat(3, var(--linje-halv)) 1fr;
-      grid-template-rows: var(--rad-hojd) minmax(0, 1fr);
-      padding-block-start: var(--trad-start);
-    }
-  }
-}
-
 @layer components {
   .logotyp {
     display: none;
   }
 
   @media (min-width: 64rem) {
+    .ram:not([data-black="hem"]) .trad {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      column-gap: var(--gutter);
+      grid-template-rows: var(--u) minmax(0, 1fr);
+      padding-block-start: var(--margin);
+    }
+
+    .nod__titel {
+      display: flex;
+      align-items: center;
+      line-height: var(--typ-nav-hojd);
+    }
+
+    .nod[data-justera="hoger"] .nod__titel,
+    .nod__inre[data-pinna="nasta"] > .nod[data-tillstand="expanderad"] + .nod .nod__titel,
+    .nod__inre[data-pinna="nasta"] > .nod[data-tillstand="expanderar"] + .nod .nod__titel {
+      justify-content: flex-end;
+    }
+
+    .nod[data-justera="mitten"] .nod__titel {
+      justify-content: center;
+      padding-inline: 0;
+    }
+
+    .cta,
+    .tebi,
+    .tebi__dag,
+    .tebi__rad {
+      line-height: var(--rad-text);
+    }
+
     .logotyp {
       display: block;
       position: absolute;
@@ -33,7 +49,8 @@
       background-color: var(--yta-mork);
       mask: url("../assets/grafik/logotyp.svg") center / contain no-repeat;
       -webkit-mask: url("../assets/grafik/logotyp.svg") center / contain no-repeat;
-      pointer-events: none;
+      pointer-events: auto;
+      text-decoration: none;
       view-transition-name: logotyp;
     }
 
@@ -46,6 +63,18 @@
 
     .ram[data-yta="mork"] .logotyp {
       background-color: var(--text-pa-mork);
+    }
+
+    .ram[data-yta="svart"] .logotyp {
+      background-color: var(--yta-panel);
+    }
+
+    .black__lager[data-lager="program"] {
+      inset-inline-start: calc(var(--margin) + 2 * (var(--col) + var(--gutter)));
+      inset-block-start: var(--black-program-y);
+      inline-size: var(--span-3);
+      block-size: auto;
+      aspect-ratio: 390 / 445;
     }
 
     .black__lager[data-lager="hem"] {
@@ -72,6 +101,11 @@
     .ram[data-yta="mork"] .spelare {
       background: var(--yta-panel);
       color: var(--yta-mork);
+    }
+
+    .ram[data-yta="svart"] .spelare {
+      background: var(--yta-panel);
+      color: var(--yta-svart);
     }
 
     .trad > .nod[data-nod="restaurant"] > h2 .nod__titel {
@@ -102,7 +136,7 @@
       inline-size: max-content;
       max-inline-size: 100%;
       padding-inline: 0;
-      margin-inline-start: var(--gut-ytter);
+      margin-inline-start: 0;
       white-space: nowrap;
     }
 
@@ -121,17 +155,17 @@
     }
 
     .ram:not([data-black="hem"]) .trad > .nod[data-nod="restaurant"] > h2 .nod__reglage {
-      grid-column: 2;
+      grid-column: 1;
       grid-row: 1;
     }
 
     .ram:not([data-black="hem"]) .trad > .nod[data-nod="program"] > h2 .nod__reglage {
-      grid-column: 3;
+      grid-column: 3 / span 2;
       grid-row: 1;
     }
 
     .ram:not([data-black="hem"]) .trad > .nod[data-nod="about"] > h2 .nod__reglage {
-      grid-column: 4;
+      grid-column: -2 / -1;
       grid-row: 1;
     }
 
@@ -150,9 +184,21 @@
       display: grid;
       grid-template-rows: 1fr;
       opacity: 1;
-      overflow: auto;
+      overflow: hidden;
       min-block-size: 0;
       transition: none;
+      padding-block-end: calc(var(--logotyp-h) + (var(--logotyp-vald-block-end) * 2));
+    }
+
+    .ram:not([data-black="hem"]) .trad > .nod[data-tillstand="expanderad"] > .nod__panel > .nod__inre,
+    .ram:not([data-black="hem"]) .trad > .nod[data-tillstand="expanderar"] > .nod__panel > .nod__inre {
+      block-size: 100%;
+      overflow: visible;
+    }
+
+    .ram:not([data-black="hem"]) .kok,
+    .ram:not([data-black="hem"]) .nod__flode {
+      margin-block-end: calc(-1 * (var(--logotyp-h) + (var(--logotyp-vald-block-end) * 2)));
     }
 
     .ram:not([data-black="hem"]) .trad > .nod:last-child .nod__reglage {
@@ -170,25 +216,354 @@
       background: var(--yta-mork);
     }
 
-    .nod[data-nod="restaurant"][data-vy="kok"] [data-nod="menu"] {
-      display: none;
-    }
-
     .ram:not([data-black="hem"]) [data-nod="restaurant"] > .nod__panel > .nod__inre {
-      inline-size: var(--kolumn-bredd);
+      inline-size: var(--span-3);
       max-inline-size: 100%;
       margin-inline: auto;
     }
 
-    .ram:not([data-black="hem"]) .kok .styrenhet {
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="kok"] > .nod__panel > .nod__inre,
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] > .nod__panel > .nod__inre {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      column-gap: var(--gutter);
+      inline-size: 100%;
+      max-inline-size: none;
       margin-inline: 0;
-      margin-block-start: var(--linje-tjocklek);
+      padding-inline: 0;
     }
 
-    .ram:not([data-black="hem"]) .kok .brod {
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="kok"] > .nod__panel > .nod__inre {
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] > .nod__panel > .nod__inre {
+      grid-template-rows: minmax(0, 1fr);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="kok"] .kok,
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] .kok {
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      min-block-size: 0;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"] [data-nod="menu"] {
+      grid-column: 1;
+      z-index: var(--lager-list);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="kok"] [data-nod="menu"] {
+      grid-row: 2;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="kok"] [data-nod="menu"] .nod__titel {
       padding-inline: 0;
-      padding-block-start: var(--caption-hojd);
-      max-inline-size: var(--copy-bredd);
+      text-align: center;
+      margin-inline: auto;
+      inline-size: max-content;
+      max-inline-size: 100%;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] [data-nod="menu"] {
+      grid-column: 1 / span 2;
+      grid-row: 1;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      min-block-size: 0;
+      background: var(--yta-panel);
+      color: var(--text-pa-panel);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] [data-nod="menu"][data-tillstand="expanderad"],
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] [data-nod="menu"][data-tillstand="expanderar"] {
+      flex: none;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] [data-nod="menu"] > .nod__panel {
+      flex: 1 1 auto;
+      min-block-size: 0;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] [data-nod="menu"] .nod__reglage {
+      flex: 0 0 var(--u);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] [data-nod="menu"] .nod__titel {
+      padding-inline: var(--margin);
+      line-height: var(--u);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] [data-nod="menu"] .nod__flode {
+      margin-block-end: 0;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] .meny-lista {
+      gap: 0;
+      padding-inline: var(--margin);
+      padding-block: 0;
+      font-size: var(--typ-nav);
+      line-height: var(--u);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] .meny-grupp {
+      margin-block-end: var(--u);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] .meny-grupp:last-child {
+      margin-block-end: 0;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] .meny-grupp__rubrik {
+      block-size: var(--u);
+      margin-block-end: 0;
+      font-size: var(--typ-nav);
+      line-height: var(--u);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] .meny-rad {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: var(--gutter);
+      block-size: var(--u);
+      line-height: var(--u);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="restaurant"][data-vy="meny"] [data-nod="menu"] .cta {
+      flex: 0 0 var(--u);
+      padding-block: 0;
+      padding-inline: var(--margin);
+      line-height: var(--u);
+      inline-size: 100%;
+    }
+
+    .ram:not([data-black="hem"]) .las-stycke {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      column-gap: var(--gutter);
+      row-gap: var(--gutter);
+      padding-block-end: var(--caption-hojd);
+    }
+
+    .ram:not([data-black="hem"]) .las-stycke .brod {
+      padding-inline: 0;
+      inline-size: auto;
+      max-inline-size: none;
+      margin-inline: 0;
+    }
+
+    .ram:not([data-black="hem"]) .las-stycke__media {
+      inline-size: auto;
+      max-inline-size: 100%;
+      margin: 0;
+      float: none;
+    }
+
+    .ram:not([data-black="hem"]) .las-stycke[data-justera="vanster"] .brod {
+      grid-column: 1 / span 2;
+    }
+
+    .ram:not([data-black="hem"]) .las-stycke[data-justera="vanster"] .las-stycke__media {
+      grid-column: -4 / -1;
+    }
+
+    .ram:not([data-black="hem"]) .las-stycke[data-justera="mitten"] .brod {
+      grid-column: 3 / span 2;
+    }
+
+    .ram:not([data-black="hem"]) .las-stycke[data-justera="mitten"] .las-stycke__media {
+      grid-column: 3 / span 3;
+    }
+
+    .ram:not([data-black="hem"]) .las-stycke[data-justera="hoger"] .brod {
+      grid-column: -3 / -1;
+    }
+
+    .ram:not([data-black="hem"]) .las-stycke[data-justera="hoger"] .las-stycke__media {
+      grid-column: 1 / span 3;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      column-gap: var(--gutter);
+      grid-template-rows: var(--handelse-rubrik);
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse][data-tillstand="expanderad"],
+    .ram:not([data-black="hem"]) [data-handelse][data-tillstand="expanderar"] {
+      grid-template-rows: var(--handelse-rubrik) minmax(0, var(--program-kropp));
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] > .nod__panel > .nod__inre[data-pinna="nasta"] {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      block-size: auto;
+      max-block-size: none;
+      overflow: visible;
+    }
+
+    .ram[data-black="program"],
+    .ram[data-black="program-lista"] {
+      block-size: auto;
+      min-block-size: 100dvh;
+      max-block-size: none;
+      overflow: visible;
+    }
+
+    .ram[data-black="program"] .trad,
+    .ram[data-black="program-lista"] .trad {
+      grid-template-rows: var(--u) auto;
+      overflow: visible;
+      min-block-size: calc(100dvh - var(--margin));
+    }
+
+    .ram[data-black="program"] .trad > .nod[data-tillstand="expanderad"] > .nod__panel,
+    .ram[data-black="program-lista"] .trad > .nod[data-tillstand="expanderad"] > .nod__panel,
+    .ram[data-black="program"] .trad > .nod[data-tillstand="expanderar"] > .nod__panel,
+    .ram[data-black="program-lista"] .trad > .nod[data-tillstand="expanderar"] > .nod__panel {
+      overflow: visible;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] [data-niva="1"] .nod__titel {
+      padding-inline: 0;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod__inre[data-pinna="nasta"] > .nod .nod__titel {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod[data-blad] .nod__reglage {
+      flex-basis: var(--handelse-rubrik);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod[data-blad] .nod__titel {
+      flex: 1 1 auto;
+      align-items: center;
+      line-height: var(--typ-nav-hojd);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] [data-handelse].nod .nod__titel {
+      font-size: var(--typ-3);
+      line-height: var(--typ-3-hojd);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod__inre[data-pinna="nasta"] > .nod[data-tillstand="expanderad"] + .nod ~ .nod,
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod__inre[data-pinna="nasta"] > .nod[data-tillstand="expanderar"] + .nod ~ .nod {
+      display: grid;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod__inre[data-pinna="nasta"] > .nod[data-tillstand="expanderad"],
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod__inre[data-pinna="nasta"] > .nod[data-tillstand="expanderar"] {
+      flex: 0 0 auto;
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod__inre[data-pinna="nasta"] > .nod[data-tillstand="expanderad"] > .nod__panel,
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod__inre[data-pinna="nasta"] > .nod[data-tillstand="expanderar"] > .nod__panel {
+      flex: 0 0 var(--program-kropp);
+      block-size: var(--program-kropp);
+      min-block-size: var(--program-kropp);
+      max-block-size: var(--program-kropp);
+    }
+
+    .ram:not([data-black="hem"]) [data-nod="program"] .nod__inre[data-pinna="nasta"] > .nod:not([data-tillstand="expanderad"]):not([data-tillstand="expanderar"]) {
+      flex: 0 0 var(--handelse-rubrik);
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] > h3 .nod__reglage {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] > .nod__panel {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      min-block-size: 0;
+      block-size: 100%;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] > .nod__panel > .nod__inre {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1fr) auto;
+      column-gap: var(--gutter);
+      block-size: 100%;
+      min-block-size: 0;
+      overflow: hidden;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse]:nth-child(odd) > .nod__panel > .nod__inre > .galleri[data-axel="y"] {
+      grid-column: 1 / span 3;
+      grid-row: 1;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse]:nth-child(odd) > .nod__panel > .nod__inre > .nod__flode {
+      grid-column: 4 / span 3;
+      grid-row: 1;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] > .nod__panel > .nod__inre > .cta {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      inline-size: 100%;
+      max-inline-size: none;
+      padding-inline: var(--gutter);
+      justify-self: stretch;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse]:nth-child(even) > .nod__panel > .nod__inre > .galleri[data-axel="y"] {
+      grid-column: 4 / span 3;
+      grid-row: 1;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse]:nth-child(even) > .nod__panel > .nod__inre > .nod__flode {
+      grid-column: 1 / span 3;
+      grid-row: 1;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] .galleri[data-axel="y"],
+    .ram:not([data-black="hem"]) [data-handelse] .nod__flode {
+      min-inline-size: 0;
+      min-block-size: 0;
+      block-size: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] .nod__flode {
+      padding-inline: var(--program-text-insats);
+      padding-block-start: var(--gutter);
+      padding-block-end: var(--gutter);
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] .nod__flode .brod {
+      padding-inline: 0;
+      padding-block: 0;
+      max-inline-size: none;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] .lankrad {
+      display: block;
+      text-align: end;
+      margin-block-start: var(--typ-brod-hojd);
+      margin-block-end: 0;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] .lankrad a {
+      display: block;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] .galleri[data-axel="y"] {
+      container-type: size;
+    }
+
+    .ram:not([data-black="hem"]) [data-handelse] .galleri[data-axel="y"] .galleri__bild {
+      block-size: 100cqb;
     }
   }
 }

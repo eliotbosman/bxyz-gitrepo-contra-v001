@@ -3,12 +3,12 @@
 @layer components {
   .nod__panel {
     transition:
-      grid-template-rows var(--rorelse-standard) var(--ease-standard),
-      opacity var(--rorelse-standard) var(--ease-standard);
+      grid-template-rows var(--rorelse-standard) var(--ease),
+      opacity var(--rorelse-standard) var(--ease);
   }
 
   .galleri__bana {
-    transition: transform var(--rorelse-standard) var(--ease-standard);
+    transition: transform var(--rorelse-standard) var(--ease);
   }
 }
 
@@ -22,7 +22,7 @@
     ::view-transition-group(linje-about),
     ::view-transition-group(logotyp) {
       animation-duration: var(--rorelse-standard);
-      animation-timing-function: var(--ease-standard);
+      animation-timing-function: var(--ease);
     }
 
     ::view-transition-old(titel-restaurant),
